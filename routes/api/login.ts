@@ -5,11 +5,12 @@ export const handler: Handlers = {
   async POST(req) {
     const url = new URL(req.url);
     const form = await req.formData();
-    if (form.get("username") === "deno" && form.get("password") === "land") {
+    if (form.get("password") === "land") {
       const headers = new Headers();
+      const username = String(form.get("username") || "anonymous");
       setCookie(headers, {
         name: "auth",
-        value: "bar", // this should be a unique value for each session
+        value: username, // this should be a unique value for each session
         maxAge: 120,
         sameSite: "Lax", // this is important to prevent CSRF attacks
         domain: url.hostname,
