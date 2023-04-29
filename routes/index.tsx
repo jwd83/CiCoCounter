@@ -1,4 +1,3 @@
-
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
 // load components we need
@@ -26,19 +25,7 @@ export const handler: Handlers = {
 
 export default function Home({ data }: PageProps<Data>) {
   return (
-    <div class="text-center">
-      <h1 class="text-6xl mb-8">
-        <a href="/">CiCoCounter</a>
-      </h1>
-
-      {
-        /*
-        <div class="mb-4">
-          You {data.isAllowed ? "are" : "are not"} currently logged in.
-        </div>
-        */
-      }
-
+    <>
       {!data.isAllowed ? <Login /> : (
         <>
           <WelcomeHome />
@@ -47,9 +34,10 @@ export default function Home({ data }: PageProps<Data>) {
           </div>
           <MealList />
           <AddMealForm />
+          <a href="/profile">Edit My Profile</a>
           <Logout />
         </>
       )}
-    </div>
+    </>
   );
 }
