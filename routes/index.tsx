@@ -1,5 +1,7 @@
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
+import { Logout } from "../components/Logout.tsx";
+import { WelcomeHome } from "../components/WelcomeHome.tsx";
 
 interface Data {
   isAllowed: boolean;
@@ -33,33 +35,14 @@ export default function Home({ data }: PageProps<Data>) {
       {!data.isAllowed ? <Login /> : (
         <>
           <WelcomeHome />
-          <div>
+          <div class="text-2xl">
             Here's what's new today {data.name}!
           </div>
+          <MealList />
+          <AddMealForm />
           <Logout />
         </>
       )}
-    </div>
-  );
-}
-
-function WelcomeHome() {
-  return (
-    <h1 class="text-4xl mb-8">
-      Welcome home 💪😉
-    </h1>
-  );
-}
-
-function Logout() {
-  return (
-    <div class="mt-4">
-      <a
-        class="px-2 py-1 border(gray-100 2) hover:bg-gray-200 bg-gray-300 rounded"
-        href="/logout"
-      >
-        Logout
-      </a>
     </div>
   );
 }
@@ -93,5 +76,27 @@ function Login() {
         </button>
       </div>
     </form>
+  );
+}
+
+function MealList() {
+  return (
+    <div
+      class="bg-green-200 rounded"
+      style="width: 300px; text-align: center; margin:auto;"
+    >
+      <div class="text-2xl">Calorie Intake</div>
+    </div>
+  );
+}
+
+function AddMealForm() {
+  return (
+    <div
+      class="bg-red-200 rounded"
+      style="width: 300px; text-align: center; margin:auto;"
+    >
+      <div class="text-2xl">Add Meal</div>
+    </div>
   );
 }
