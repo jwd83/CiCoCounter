@@ -1,10 +1,12 @@
+
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
-import { Logout } from "../components/Logout.tsx";
-import { WelcomeHome } from "../components/WelcomeHome.tsx";
-import { Login } from "../components/Login.tsx";
-import { MealList } from "../components/MealList.tsx";
+// load components we need
 import { AddMealForm } from "../components/AddMealForm.tsx";
+import { Login } from "../components/Login.tsx";
+import { Logout } from "../components/Logout.tsx";
+import { MealList } from "../components/MealList.tsx";
+import { WelcomeHome } from "../components/WelcomeHome.tsx";
 
 interface Data {
   isAllowed: boolean;
@@ -30,9 +32,11 @@ export default function Home({ data }: PageProps<Data>) {
       </h1>
 
       {
-        /* <div class="mb-4">
-        You currently {data.isAllowed ? "are" : "are not"} logged in.
-      </div> */
+        /*
+        <div class="mb-4">
+          You {data.isAllowed ? "are" : "are not"} currently logged in.
+        </div>
+        */
       }
 
       {!data.isAllowed ? <Login /> : (
