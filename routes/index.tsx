@@ -9,9 +9,10 @@ interface Data {
 export const handler: Handlers = {
   GET(req, ctx) {
     const cookies = getCookies(req.headers);
+    console.log(cookies);
     return ctx.render!({
       isAllowed: cookies.auth !== undefined,
-      name: cookies.value || "",
+      name: cookies.auth || "anonymous",
     });
   },
 };
@@ -32,6 +33,9 @@ export default function Home({ data }: PageProps<Data>) {
       {!data.isAllowed ? <Login /> : (
         <>
           <WelcomeHome />
+          <div>
+            Here's what's new today {data.name}!
+          </div>
           <Logout />
         </>
       )}
@@ -42,19 +46,21 @@ export default function Home({ data }: PageProps<Data>) {
 function WelcomeHome() {
   return (
     <h1 class="text-4xl mb-8">
-      Welcome home!
+      Welcome home 💪😉
     </h1>
   );
 }
 
 function Logout() {
   return (
-    <a
-      class="px-2 py-1 border(gray-100 2) hover:bg-gray-200 bg-gray-300 rounded"
-      href="/logout"
-    >
-      Logout
-    </a>
+    <div class="mt-4">
+      <a
+        class="px-2 py-1 border(gray-100 2) hover:bg-gray-200 bg-gray-300 rounded"
+        href="/logout"
+      >
+        Logout
+      </a>
+    </div>
   );
 }
 
@@ -63,19 +69,19 @@ function Login() {
     <form method="post" action="/api/login">
       <h2 class="text-4xl mb-8">Login</h2>
       <div class="mb-2">
-        User :
+        🧑Username
         <input
           type="text"
           name="username"
-          className="rounded ml-4 bg-red-100 text-2xl"
+          className="rounded ml-4 mr-4 bg-red-100 text-2xl"
         />
       </div>
       <div class="mb-4">
-        Password :
+        🔑Password
         <input
           type="password"
           name="password"
-          className="rounded ml-4 bg-red-100 text-2xl"
+          className="rounded ml-4 mr-4 bg-red-100 text-2xl"
         />
       </div>
       <div>
