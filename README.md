@@ -1,4 +1,8 @@
-# fresh project
+# CiCoCounter
+
+The Calorie In, Calorie Out Counter
+
+## a deno fresh project
 
 ### Usage
 
