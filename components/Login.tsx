@@ -7,7 +7,8 @@ export function Login() {
         <input
           type="password"
           name="password"
-          className="rounded ml-4 mr-4 bg-red-100 text-2xl"
+          class="rounded ml-4 mr-4 bg-red-100 text-2xl"
+          autofocus
         />
       </div>
       <div>
