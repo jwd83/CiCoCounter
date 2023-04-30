@@ -1,6 +1,6 @@
 # CiCoCounter
 
-The Calorie In, Calorie Out Counter
+The Anonymous Calorie In, Calorie Out Counter
 
 ## a deno fresh project
 

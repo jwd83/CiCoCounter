@@ -11,9 +11,13 @@ export default function App({ Component }: AppProps) {
         <link rel="stylesheet" href={asset("style.css")} />
       </Head>
       <body class="text-center">
-        <h1 class="text-6xl mb-8">
-          <a href="/">CiCoCounter</a>
+        <h1 class="text-6xl mb-2">
+          <a href="/">🏋️CiCoCounter⚖️</a>
         </h1>
+        <h2 class="text-2xl mb-4">
+          The anonymous Calorie In, Calorie Out counter
+        </h2>
+
         <Component />
       </body>
     </html>

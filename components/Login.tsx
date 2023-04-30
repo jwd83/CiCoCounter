@@ -2,16 +2,8 @@ export function Login() {
   return (
     <form method="post" action="/api/login">
       <h2 class="text-4xl mb-8">Login</h2>
-      <div class="mb-2">
-        🧑Username
-        <input
-          type="text"
-          name="username"
-          className="rounded ml-4 mr-4 bg-red-100 text-2xl"
-        />
-      </div>
-      <div class="mb-4">
-        🔑Password
+      <div class="mb-8">
+        🔑 Account #
         <input
           type="password"
           name="password"
