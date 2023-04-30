@@ -13,10 +13,17 @@ export function Login() {
       <div>
         <button
           type="submit"
-          class="rounded hover:bg-blue-300 bg-blue-200 p-2 border(blue-500 2)"
+          class="rounded hover:bg-green-300 bg-green-200 p-2 border(green-500 2) m-2"
         >
-          Submit
+          Login
         </button>
+        or
+        <a
+          href="/api/signup"
+          class="rounded hover:bg-blue-300 bg-blue-200 p-2 border(blue-500 2) m-2"
+        >
+          Sign Up
+        </a>
       </div>
     </form>
   );

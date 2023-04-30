@@ -5,12 +5,19 @@ export const handler: Handlers = {
   async POST(req) {
     const url = new URL(req.url);
     const form = await req.formData();
-    if (form.get("password") === "land") {
+
+    // check if the password is 16 numbers exactly
+    const user_id = String(form.get("password") || "");
+    let verified = false;
+
+    verified = user_id.length === 16 && /^\d+$/.test(user_id);
+
+    if (verified) {
       const headers = new Headers();
-      const username = String(form.get("username") || "anonymous");
+      // const username = String(form.get("username") || "anonymous");
       setCookie(headers, {
         name: "auth",
-        value: username, // this should be a unique value for each session
+        value: user_id, // this should be a unique value for each session
         maxAge: 120,
         sameSite: "Lax", // this is important to prevent CSRF attacks
         domain: url.hostname,
