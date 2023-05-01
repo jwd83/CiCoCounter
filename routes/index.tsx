@@ -31,7 +31,7 @@ export default function Home({ data }: PageProps<Data>) {
         <>
           <WelcomeHome />
           <TodaysStats name={data.name} date="July 1" />
-          <MealList />
+          <MealList meals={[]} />
           <AddMealForm />
           <a href="/profile">Edit My Profile</a>
           <Logout />
