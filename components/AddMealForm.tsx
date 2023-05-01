@@ -1,7 +1,7 @@
 export function AddMealForm() {
   return (
     <>
-      <form method="post" action="/api/addmeal">
+      <form method="POST" action="/api/addmeal">
         <div
           class="bg-red-200 rounded p-4 mt-4 mb-4"
           style="width: 300px; text-align: center; margin-left:auto; margin-right:auto;"
