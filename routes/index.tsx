@@ -6,6 +6,7 @@ import { Login } from "../components/Login.tsx";
 import { Logout } from "../components/Logout.tsx";
 import { MealList } from "../components/MealList.tsx";
 import { WelcomeHome } from "../components/WelcomeHome.tsx";
+import { TodaysStats } from "../components/TodaysStats.tsx";
 
 interface Data {
   isAllowed: boolean;
@@ -29,9 +30,7 @@ export default function Home({ data }: PageProps<Data>) {
       {!data.isAllowed ? <Login /> : (
         <>
           <WelcomeHome />
-          <div class="text-2xl">
-            Here are your stats for today {data.name}!
-          </div>
+          <TodaysStats name={data.name} date="July 1" />
           <MealList />
           <AddMealForm />
           <a href="/profile">Edit My Profile</a>

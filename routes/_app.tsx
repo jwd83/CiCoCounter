@@ -19,6 +19,14 @@ export default function App({ Component }: AppProps) {
         </h2>
 
         <Component />
+
+        <a href="https://fresh.deno.dev/">
+          <img
+            src="https://fresh.deno.dev/fresh-badge.svg"
+            class="m-auto mt-10"
+            style="width: 175px; height: auto;"
+          />
+        </a>
       </body>
     </html>
   );

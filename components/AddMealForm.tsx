@@ -28,8 +28,8 @@ export function AddMealForm() {
           <div>
             <input
               type="submit"
-              value="Add Meal"
-              class="rounded hover:bg-blue-300 bg-blue-200 p-2 border(blue-500 2)"
+              value="🍉 Add Meal"
+              class="rounded hover:bg-blue-300 bg-blue-200 p-2 border(blue-500 2) mt-4 mb-2"
             />
           </div>
         </div>
