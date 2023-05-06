@@ -1,4 +1,4 @@
-# CiCoCounter
+# CICOCounter
 
 The Anonymous Calorie In, Calorie Out Counter
 
