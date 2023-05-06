@@ -36,7 +36,7 @@ export default function Home({ data }: PageProps<Data>) {
       {!data.isAllowed ? <Login /> : (
         <>
           <WelcomeHome />
-          <TodaysStats name={data.name} date="July 1" />
+          <TodaysStats name={data.name} date={todaysDate()} />
           <MealList meals={data.meals} />
           <AddMealForm />
           <a href="/profile">Edit My Profile</a>
