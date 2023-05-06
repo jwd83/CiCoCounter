@@ -27,6 +27,13 @@ export default function App({ Component }: AppProps) {
             style="width: 175px; height: auto;"
           />
         </a>
+        <a href="https://github.com/jwd83/cicocounter">
+          <img
+            src="/github-mark.png"
+            class="m-auto mt-4"
+            style="width: 50px; height: auto;"
+          />
+        </a>
       </body>
     </html>
   );
