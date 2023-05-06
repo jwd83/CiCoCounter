@@ -1,4 +1,4 @@
-import type { Meal, MealEvent } from "$app/utils/types.ts";
+import type { Meal } from "$app/utils/types.ts";
 
 const kv = await Deno.openKv();
 
@@ -12,17 +12,30 @@ export async function saveMeal(meal: Meal, user_id: string) {
   const key = ["meals", user_id, _local_date, _timestamp];
   console.log(`key = ${key.toString()}, value = ${JSON.stringify(meal)}`);
   const result = await kv.set(key, meal);
-  console.log(`result = ${result}`);
+  console.log(`result = ${JSON.stringify(result)}`);
   return result;
 }
 
 export async function loadMeals(user_id: string, local_date: string) {
+  // create the root key to iterate over
+  const root_key = ["meals", user_id, local_date];
+  let meals: Meal[] = [];
+
+  // console.log(`root_key = ${root_key.toString()}`);
+
+  const meal_entries = kv.list({ prefix: root_key });
+
+  for await (const meal_entry of meal_entries) {
+    let _name = meal_entry.value.name;
+    let _calories = meal_entry.value.calories;
+
+    let new_meal: Meal = {
+      name: _name,
+      calories: _calories,
+    };
+
+    meals.push(new_meal);
+  }
+
+  return meals;
 }
-// export async function StoreMeal(
-//   user_id: string,
-//   name: string,
-//   calories: number,
-// ) {
-//   const kv = await Deno.openKv();
-//   const timestamp = Date.now().toString();
-// }

@@ -3,8 +3,13 @@ export interface Meal {
   calories: number;
 }
 
-export interface MealEvent {
-  local_date: string;
+export interface MealRecord {
   timestamp: number;
   meal: Meal;
+}
+
+export interface Data {
+  isAllowed: boolean;
+  name: string;
+  meals: Meal[];
 }
