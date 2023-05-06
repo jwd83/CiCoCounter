@@ -1,8 +1,7 @@
 import { Meal } from "$app/utils/types.ts";
 
 export function MealList(props: { meals: Meal[] }) {
-  // TODO: calculate a total number of calories consumed today
-
+  // solve the total calories today
   let total_calories = 0;
   for (let i = 0; i < props.meals.length; i++) {
     total_calories += props.meals[i].calories;
