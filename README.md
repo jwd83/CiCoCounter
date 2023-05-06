@@ -2,6 +2,8 @@
 
 The Anonymous Calorie In, Calorie Out Counter
 
+Live at: [https://cicocounter.deno.dev/](https://cicocounter.deno.dev/)
+
 ## a deno fresh project
 
 ### Usage
