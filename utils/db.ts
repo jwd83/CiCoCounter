@@ -3,8 +3,12 @@ import type { Meal, MealEvent } from "$app/utils/types.ts";
 const kv = await Deno.openKv();
 
 export async function saveMeal(meal: Meal, user_id: string) {
-  const _timestamp = Date.now() / 1000;
-  const _local_date = new Date(_timestamp).toISOString().split("T")[0];
+  // store and format the current time
+  const _now = Date.now();
+  const _timestamp = _now / 1000;
+  const _local_date = new Date(_now).toISOString().split("T")[0];
+
+  // create our key to store the data
   const key = ["meals", user_id, _local_date, _timestamp];
   console.log(`key = ${key.toString()}, value = ${JSON.stringify(meal)}`);
   const result = await kv.set(key, meal);

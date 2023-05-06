@@ -1,5 +1,7 @@
 import { Handlers } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
+import { Meal } from "$app/utils/types.ts";
+import { saveMeal } from "$app/utils/db.ts";
 
 export const handler: Handlers = {
   async POST(req) {
@@ -12,28 +14,17 @@ export const handler: Handlers = {
       });
     }
 
-    // user is logged in, store their data
+    // user is logged in, prepare to store their meal
     const form = await req.formData();
     const headers = new Headers();
-    const timestamp = Date.now().toString();
     const user_id = cookies.auth.toString();
-    const kv = await Deno.openKv();
-
-    console.log("KV = ");
-    console.log(kv);
-
-    // create our data object to store in the KV store
-    const key = ["meals", user_id, timestamp];
-    const value = {
-      "user_id": cookies.auth,
-      "timestamp": timestamp,
-      "name": form.get("name"),
-      "calories": form.get("calories"),
+    const meal: Meal = {
+      name: (form.get("name")?.toString() || ""),
+      calories: parseInt(form.get("calories")?.toString() || "0"),
     };
-    console.log(
-      `key = ${key.toString()}, value = ${JSON.stringify(value)}`,
-    );
-    await kv.set(key, value);
+
+    // store the meal
+    await saveMeal(meal, user_id);
 
     headers.set("location", "/");
     return new Response(null, {
