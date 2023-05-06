@@ -4,8 +4,7 @@ export interface Meal {
 }
 
 export interface MealEvent {
-  user_id: string;
   local_date: string;
-  timestamp: string;
+  timestamp: number;
   meal: Meal;
 }
