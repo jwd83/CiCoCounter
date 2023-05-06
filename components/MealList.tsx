@@ -3,6 +3,11 @@ import { Meal } from "$app/utils/types.ts";
 export function MealList(props: { meals: Meal[] }) {
   // TODO: calculate a total number of calories consumed today
 
+  let total_calories = 0;
+  for (let i = 0; i < props.meals.length; i++) {
+    total_calories += props.meals[i].calories;
+  }
+
   return (
     <div
       class="bg-green-200 rounded pt-2 pb-2"
@@ -16,6 +21,7 @@ export function MealList(props: { meals: Meal[] }) {
           </li>
         ))}
       </ul>
+      <div class="text-2xl mt-2">Total: {total_calories} calories</div>
     </div>
   );
 }
