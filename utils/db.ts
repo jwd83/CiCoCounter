@@ -19,7 +19,7 @@ export async function saveMeal(meal: Meal, user_id: string) {
 export async function loadMeals(user_id: string, local_date: string) {
   // create the root key to iterate over
   const root_key = ["meals", user_id, local_date];
-  let meals: Meal[] = [];
+  const meals: Meal[] = [];
 
   // console.log(`root_key = ${root_key.toString()}`);
 
