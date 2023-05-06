@@ -26,15 +26,8 @@ export async function loadMeals(user_id: string, local_date: string) {
   const meal_entries = kv.list({ prefix: root_key });
 
   for await (const meal_entry of meal_entries) {
-    let _name = meal_entry.value.name;
-    let _calories = meal_entry.value.calories;
-
-    let new_meal: Meal = {
-      name: _name,
-      calories: _calories,
-    };
-
-    meals.push(new_meal);
+    const _meal = meal_entry.value as Meal;
+    meals.push(_meal);
   }
 
   return meals;
