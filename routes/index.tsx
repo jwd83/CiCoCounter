@@ -40,8 +40,12 @@ export default function Home({ data }: PageProps<Data>) {
     <>
       {!data.isAllowed ? <Login /> : (
         <>
-          <TodaysStats name={data.name} date={todaysDate()} />
-          <CalorieSummary meals={data.meals} exercises={data.exercises} />
+          <TodaysStats name={data.name} />
+          <CalorieSummary
+            meals={data.meals}
+            exercises={data.exercises}
+            date={todaysDate()}
+          />
           <AddMealForm />
           <AddExerciseForm />
           <div class="p-4">

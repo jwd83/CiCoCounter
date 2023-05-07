@@ -1,7 +1,7 @@
 import { Exercise, Meal } from "$app/utils/types.ts";
 
 export function CalorieSummary(
-  props: { meals: Meal[]; exercises: Exercise[] },
+  props: { meals: Meal[]; exercises: Exercise[]; date: string },
 ) {
   // solve the total calories consumed today
   let total_intake = 0;
@@ -20,6 +20,8 @@ export function CalorieSummary(
       class="bg-blue-200 rounded-xl pt-2 pb-2 border(blue-500 2)"
       style="width: 300px; text-align: center; margin:auto;"
     >
+      <h3 class="text-2xl">{props.date}</h3>
+
       <div class="text-2xl mb-2">Calorie Summary</div>
       <div class="bg-blue-400">
         <div class="text-xl mb-1 pt-2">Today's Intake</div>
