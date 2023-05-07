@@ -1,29 +1,29 @@
-export function AddMealForm() {
+export function AddExerciseForm() {
   return (
     <>
-      <form method="POST" action="/api/add_meal">
+      <form method="POST" action="/api/add_exercise">
         <div
           class="bg-red-200 rounded p-4 mt-4 mb-4"
           style="width: 300px; text-align: center; margin-left:auto; margin-right:auto;"
         >
-          <div class="text-2xl">Add Meal</div>
+          <div class="text-2xl">Add Exercise</div>
           <div>
-            Meal Description
+            Workout Description
           </div>
           <input
-            class="mt-2 mb-2 rounded border-4 p-1"
+            class="mt-2 mb-2 rounded"
             type="text"
             name="name"
-            placeholder="Meal Description"
+            placeholder="Workout Description"
           />
           <div>
-            Calories Consumed
+            Calories Burned
           </div>
           <input
-            class="mt-2 mb-2 rounded border-4 p-1"
+            class="mt-2 mb-2 rounded"
             type="text"
             name="calories"
-            placeholder="Calories Consumed"
+            placeholder="Calories Burned"
           />
           <div>
             <input

@@ -3,6 +3,11 @@ export interface Meal {
   calories: number;
 }
 
+export interface Exercise {
+  name: string;
+  calories: number;
+}
+
 export interface MealRecord {
   timestamp: number;
   meal: Meal;
