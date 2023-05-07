@@ -7,7 +7,13 @@ export default function App({ Component }: AppProps) {
   return (
     <html data-custom="data">
       <Head>
-        <title>CiCoCounter :: A Calorie Counter</title>
+        <meta
+          name="description"
+          content="The anonymous Calorie In, Calorie Out Counter"
+        />
+        <title>
+          CiCoCounter :: The anonymous Calorie In, Calorie Out Counter
+        </title>
       </Head>
       <body class="text-center bg-gray-200">
         <h1 class="text-6xl mb-4 mt-2">
