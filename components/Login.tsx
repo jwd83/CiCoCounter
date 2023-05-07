@@ -26,7 +26,7 @@ export function Login() {
             href="/api/signup"
             class="rounded-xl hover:bg-blue-300 bg-blue-200 p-2 border(blue-500 2) m-2"
           >
-            Sign Up
+            Free &amp; Instant Sign Up
           </a>
         </div>
       </form>

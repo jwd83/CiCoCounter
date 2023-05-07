@@ -6,7 +6,6 @@ import { Login } from "../components/Login.tsx";
 import { Logout } from "../components/Logout.tsx";
 import { EditProfile } from "../components/EditProfile.tsx";
 import { CalorieSummary } from "../components/CalorieSummary.tsx";
-import { WelcomeHome } from "../components/WelcomeHome.tsx";
 import { TodaysStats } from "../components/TodaysStats.tsx";
 import { Data, Exercise, Meal } from "$app/utils/types.ts";
 import { loadExercises, loadMeals } from "$app/utils/db.ts";
@@ -41,7 +40,6 @@ export default function Home({ data }: PageProps<Data>) {
     <>
       {!data.isAllowed ? <Login /> : (
         <>
-          <WelcomeHome />
           <TodaysStats name={data.name} date={todaysDate()} />
           <CalorieSummary meals={data.meals} exercises={data.exercises} />
           <AddMealForm />

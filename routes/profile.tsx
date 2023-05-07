@@ -3,7 +3,7 @@ import { getCookies } from "std/http/cookie.ts";
 // load components we need
 import { Login } from "../components/Login.tsx";
 import { Logout } from "../components/Logout.tsx";
-import { WelcomeHome } from "../components/WelcomeHome.tsx";
+import { MyProfile } from "../components/MyProfile.tsx";
 import { Data, Meal } from "$app/utils/types.ts";
 import { loadMeals } from "$app/utils/db.ts";
 import { todaysDate } from "$app/utils/date.ts";
@@ -32,7 +32,7 @@ export default function Home({ data }: PageProps<Data>) {
     <>
       {!data.isAllowed ? <Login /> : (
         <>
-          <WelcomeHome />
+          <MyProfile />
           <Logout />
         </>
       )}

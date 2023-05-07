@@ -18,8 +18,8 @@ export function MyProfile() {
                 <input
                     class=""
                     name="height"
-                    type=""
-                    placeholder=""
+                    type="number"
+                    placeholder="In inches - ie 63 for 5 foot 3 inches"
                 />
                 <input
                     class=""
@@ -31,7 +31,12 @@ export function MyProfile() {
                     class=""
                     name="tdee"
                     type="hidden"
-                    placeholder=""
+                    placeholder="💾Save Profile"
+                />
+                <input
+                    value=""
+                    type="submit"
+                    class="rounded hover:bg-blue-300 bg-blue-200 p-2 border(blue-500 2) mt-4 mb-2"
                 />
             </div>
         </form>
