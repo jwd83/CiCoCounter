@@ -1,5 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
 import { setCookie } from "std/http/cookie.ts";
+import { authCookie } from "$app/utils/auth.ts";
 
 export const handler: Handlers = {
   async POST(req) {
@@ -14,17 +15,7 @@ export const handler: Handlers = {
 
     if (verified) {
       const headers = new Headers();
-      // const username = String(form.get("username") || "anonymous");
-      setCookie(headers, {
-        name: "auth",
-        value: user_id, // this should be a unique value for each session
-        maxAge: 60 * 60 * 24 * 365, // 1 year
-        sameSite: "Lax", // this is important to prevent CSRF attacks
-        domain: url.hostname,
-        path: "/",
-        secure: true,
-      });
-
+      authCookie(headers, user_id, url);
       headers.set("location", "/");
       return new Response(null, {
         status: 303, // "See Other"
