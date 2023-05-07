@@ -5,5 +5,8 @@
   "editor.defaultFormatter": "denoland.vscode-deno",
   "cSpell.words": [
     "tdee"
-  ]
+  ],
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  }
 }
