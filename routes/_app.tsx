@@ -27,6 +27,8 @@ export default function App({ Component }: AppProps) {
 
         <a href="https://fresh.deno.dev/">
           <img
+            alt="Powered by Fresh"
+            title="Powered by Fresh"
             src="https://fresh.deno.dev/fresh-badge.svg"
             class="m-auto mt-10"
             style="width: 175px; height: auto;"
@@ -34,6 +36,8 @@ export default function App({ Component }: AppProps) {
         </a>
         <a href="https://github.com/jwd83/cicocounter">
           <img
+            alt="View source on GitHub"
+            title="View source on GitHub"
             src="/github-mark.png"
             class="m-auto mt-4"
             style="width: 50px; height: auto;"
