@@ -1,5 +1,4 @@
 import { Handlers } from "$fresh/server.ts";
-import { setCookie } from "std/http/cookie.ts";
 import { authCookie } from "$app/utils/auth.ts";
 
 export const handler: Handlers = {
