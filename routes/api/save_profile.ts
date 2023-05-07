@@ -1,7 +1,7 @@
 import { Handlers } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
-import { Meal } from "$app/utils/types.ts";
-import { saveExercise } from "$app/utils/db.ts";
+import { Profile } from "$app/utils/types.ts";
+import { saveProfile } from "$app/utils/db.ts";
 
 export const handler: Handlers = {
   async POST(req) {
@@ -18,15 +18,18 @@ export const handler: Handlers = {
     const form = await req.formData();
     const headers = new Headers();
     const user_id = cookies.auth.toString();
-    const meal: Meal = {
-      name: (form.get("name")?.toString() || ""),
-      calories: parseInt(form.get("calories")?.toString() || "0"),
+    const profile: Profile = {
+      sex: (form.get("sex")?.toString() || ""),
+      height: (parseInt(form.get("height")?.toString() || "0")),
+      weight: (parseInt(form.get("weight")?.toString() || "0")),
+      age: (parseInt(form.get("age")?.toString() || "0")),
+      tdee: (parseInt(form.get("tdee")?.toString() || "0")),
     };
 
     // store the meal
-    await saveExercise(meal, user_id);
+    await saveProfile(profile, user_id);
 
-    headers.set("location", "/");
+    headers.set("location", "/profile");
     return new Response(null, {
       status: 303, // "See Other"
       headers,

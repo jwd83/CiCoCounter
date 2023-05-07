@@ -13,8 +13,17 @@ export interface MealRecord {
   meal: Meal;
 }
 
+export interface Profile {
+  sex: string;
+  height: number;
+  weight: number;
+  age: number;
+  tdee: number;
+}
+
 export interface Data {
   isAllowed: boolean;
   name: string;
   meals: Meal[];
+  exercises: Exercise[];
 }

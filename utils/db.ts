@@ -1,4 +1,4 @@
-import type { Exercise, Meal } from "$app/utils/types.ts";
+import type { Exercise, Meal, Profile } from "$app/utils/types.ts";
 
 const kv = await Deno.openKv();
 
@@ -50,16 +50,30 @@ export async function saveExercise(exercise: Exercise, user_id: string) {
 export async function loadExercises(user_id: string, local_date: string) {
   // create the root key to iterate over
   const root_key = ["exercise", user_id, local_date];
-  const meals: Meal[] = [];
+  const exercises: Exercise[] = [];
 
   // console.log(`root_key = ${root_key.toString()}`);
 
-  const meal_entries = kv.list({ prefix: root_key });
+  const exercise_entries = kv.list({ prefix: root_key });
 
-  for await (const meal_entry of meal_entries) {
-    const _meal = meal_entry.value as Meal;
-    meals.push(_meal);
+  for await (const exercise_entry of exercise_entries) {
+    const _exercise = exercise_entry.value as Meal;
+    exercises.push(_exercise);
   }
 
-  return meals;
+  return exercises;
+}
+
+export async function saveProfile(profile: Profile, user_id: string) {
+  // store and format the current time
+  const _now = Date.now();
+  const _timestamp = _now / 1000;
+  const _local_date = new Date(_now).toISOString().split("T")[0];
+
+  // create our key to store the data
+  const key = ["profile", user_id];
+  console.log(`key = ${key.toString()}, value = ${JSON.stringify(profile)}`);
+  const result = await kv.set(key, profile);
+  console.log(`result = ${JSON.stringify(result)}`);
+  return result;
 }

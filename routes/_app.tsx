@@ -10,7 +10,7 @@ export default function App({ Component }: AppProps) {
         <title>CiCoCounter :: A Calorie Counter</title>
         <link rel="stylesheet" href={asset("style.css")} />
       </Head>
-      <body class="text-center">
+      <body class="text-center bg-gray-200">
         <h1 class="text-6xl mb-4 mt-2">
           <a href="/">⚖️CiCoCounter🏋️</a>
         </h1>
