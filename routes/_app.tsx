@@ -8,7 +8,6 @@ export default function App({ Component }: AppProps) {
     <html data-custom="data">
       <Head>
         <title>CiCoCounter :: A Calorie Counter</title>
-        <link rel="stylesheet" href={asset("style.css")} />
       </Head>
       <body class="text-center bg-gray-200">
         <h1 class="text-6xl mb-4 mt-2">
