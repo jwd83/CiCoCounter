@@ -28,10 +28,11 @@ export default function SignIn() {
             type="password"
             name="password"
             maxLength={16}
-            class="rounded ml-4 mr-4 bg-blue-100 text-2xl p-2 text-center"
+            class="rounded ml-4 mr-4 bg-blue-100 text-3xl p-2 text-center border-4"
             onInput={verifyLength}
             autocomplete="password"
             autofocus
+            style="width: 350px;"
           />
         </div>
         <div class="pb-2">
