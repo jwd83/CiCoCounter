@@ -5,14 +5,15 @@ import { useState } from "preact/hooks";
 
 export default function SignIn() {
   const [disabled, setDisabled] = useState(true);
-  const checkLength = () => {
-    const password = document.getElementById("password") as HTMLInputElement;
-    if (password.value.length === 16) {
+
+  function verifyLength(event: any) {
+    if (event.target.value.length === 16) {
       setDisabled(false);
     } else {
       setDisabled(true);
     }
-  };
+  }
+
   return (
     <div class="bg-gray-400 rounded-xl m-auto" style="width: 400px">
       <form method="post" action="/api/login">
@@ -28,10 +29,7 @@ export default function SignIn() {
             name="password"
             maxLength={16}
             class="rounded ml-4 mr-4 bg-blue-100 text-2xl p-2 text-center"
-            onKeyPress={checkLength}
-            onKeyDown={checkLength}
-            onKeyUp={checkLength}
-            onChange={checkLength}
+            onInput={verifyLength}
             autocomplete="password"
             autofocus
           />
