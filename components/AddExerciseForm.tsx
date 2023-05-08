@@ -3,7 +3,7 @@ export function AddExerciseForm() {
     <form method="POST" action="/api/add_exercise">
       <div
         class="bg-red-200 rounded-xl p-4 mt-4 mb-4 border(red-600 2) "
-        style="width: 300px; text-align: center; margin-left:auto; margin-right:auto;"
+        style="width: 350px; text-align: center; margin-left:auto; margin-right:auto;"
       >
         <div class="text-2xl">🏋️ Add Exercise</div>
         <div>
@@ -11,6 +11,7 @@ export function AddExerciseForm() {
         </div>
         <input
           class="mt-2 mb-2 rounded border-4 p-1 text-center"
+          style="width: 300px;"
           type="text"
           name="name"
           placeholder="Workout Description"
@@ -20,6 +21,7 @@ export function AddExerciseForm() {
         </div>
         <input
           class="mt-2 mb-2 rounded border-4 p-1 text-center"
+          style="width: 300px;"
           type="text"
           name="calories"
           placeholder="200"

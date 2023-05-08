@@ -3,7 +3,7 @@ export function AddMealForm() {
     <form method="POST" action="/api/add_meal">
       <div
         class="bg-green-200 rounded-xl p-4 mt-4 mb-4 border(green-600 2)"
-        style="width: 300px; text-align: center; margin-left:auto; margin-right:auto;"
+        style="width: 350px; text-align: center; margin-left:auto; margin-right:auto;"
       >
         <div class="text-2xl">🍉 Add Meal</div>
         <div>
@@ -11,6 +11,7 @@ export function AddMealForm() {
         </div>
         <input
           class="mt-2 mb-2 rounded border-4 p-1 text-center"
+          style="width: 300px;"
           type="text"
           name="name"
           placeholder="Meal Description"
@@ -20,6 +21,7 @@ export function AddMealForm() {
         </div>
         <input
           class="mt-2 mb-2 rounded border-4 p-1 text-center"
+          style="width: 300px;"
           type="text"
           name="calories"
           placeholder="500"

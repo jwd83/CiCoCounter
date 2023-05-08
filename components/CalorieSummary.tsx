@@ -17,36 +17,36 @@ export function CalorieSummary(
 
   return (
     <div
-      class="bg-blue-200 rounded-xl pt-2 pb-2 border(blue-500 2)"
-      style="width: 300px; text-align: center; margin:auto;"
+      class="bg-blue-200 rounded-xl pt-2 pb-1 border(blue-500 2)"
+      style="width: 350px; text-align: center; margin:auto;"
     >
       <div class="text-2xl">Calorie Summary</div>
       <h4 class="text-2xl mb-2">⏮️{props.date}⏭️</h4>
 
       <div class="bg-blue-400">
-        <div class="text-xl mb-1 pt-2">Today's Intake</div>
-        <ul>
+        <div class="text-xl mb-1 pt-2">
+          Today's Intake:{" "}
+          <span class="font-black">{total_intake} calories</span>
+        </div>
+        <ul class="pb-2">
           {props.meals.map((meal) => (
             <li>
               {meal.name} - {meal.calories} calories
             </li>
           ))}
         </ul>
-        <div class="text-xl mt-2 mb-2 pb-2">
-          Total Intake: {total_intake} calories
-        </div>
       </div>
-      <div class="text-xl mb-1">Today's Exercise</div>
-      <ul>
+      <div class="text-xl mb-1 pt-2">
+        Today's Exercise{" "}
+        <span class="font-black">{total_exercise} calories</span>
+      </div>
+      <ul class="pb-2">
         {props.exercises.map((exercise) => (
           <li>
             {exercise.name} - {exercise.calories} calories
           </li>
         ))}
       </ul>
-      <div class="text-xl mt-2">
-        Total Exercises: {total_exercise} calories
-      </div>
     </div>
   );
 }
