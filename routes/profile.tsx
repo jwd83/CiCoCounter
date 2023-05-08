@@ -1,12 +1,12 @@
 import type { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
 // load components we need
-import { Login } from "../components/Login.tsx";
 import { Logout } from "../components/Logout.tsx";
 import { MyProfile } from "../components/MyProfile.tsx";
 import { Data, Meal } from "$app/utils/types.ts";
 import { loadMeals } from "$app/utils/db.ts";
 import { todaysDate } from "$app/utils/date.ts";
+import SignIn from "../islands/SignIn.tsx";
 
 export const handler: Handlers = {
   async GET(req, ctx) {
@@ -30,7 +30,7 @@ export const handler: Handlers = {
 export default function Home({ data }: PageProps<Data>) {
   return (
     <>
-      {!data.isAllowed ? <Login /> : (
+      {!data.isAllowed ? <SignIn /> : (
         <>
           <MyProfile />
           <Logout />

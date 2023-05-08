@@ -2,7 +2,6 @@ import type { Handlers, PageProps } from "$fresh/server.ts";
 import { getCookies } from "std/http/cookie.ts";
 // load components we need
 import { AddMealForm } from "../components/AddMealForm.tsx";
-import { Login } from "../components/Login.tsx";
 import { Logout } from "../components/Logout.tsx";
 import { EditProfile } from "../components/EditProfile.tsx";
 import { CalorieSummary } from "../components/CalorieSummary.tsx";
@@ -11,6 +10,7 @@ import { Data, Exercise, Meal } from "$app/utils/types.ts";
 import { loadExercises, loadMeals } from "$app/utils/db.ts";
 import { todaysDate } from "$app/utils/date.ts";
 import { AddExerciseForm } from "../components/AddExerciseForm.tsx";
+import SignIn from "../islands/SignIn.tsx";
 
 export const handler: Handlers = {
   async GET(req, ctx) {
@@ -38,22 +38,28 @@ export const handler: Handlers = {
 export default function Home({ data }: PageProps<Data>) {
   return (
     <>
-      {!data.isAllowed ? <Login /> : (
-        <>
-          <TodaysStats name={data.name} />
-          <CalorieSummary
-            meals={data.meals}
-            exercises={data.exercises}
-            date={todaysDate()}
-          />
-          <AddMealForm />
-          <AddExerciseForm />
-          <div class="p-4">
-            <EditProfile />
-            <Logout />
-          </div>
-        </>
-      )}
+      {!data.isAllowed
+        ? (
+          <>
+            <SignIn />
+          </>
+        )
+        : (
+          <>
+            <TodaysStats name={data.name} />
+            <CalorieSummary
+              meals={data.meals}
+              exercises={data.exercises}
+              date={todaysDate()}
+            />
+            <AddMealForm />
+            <AddExerciseForm />
+            <div class="p-4">
+              <EditProfile />
+              <Logout />
+            </div>
+          </>
+        )}
     </>
   );
 }

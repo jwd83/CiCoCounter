@@ -3,13 +3,10 @@
 
 import { useState } from "preact/hooks";
 
-export function Login() {
+export default function SignIn() {
   const [disabled, setDisabled] = useState(true);
   const checkLength = () => {
-    // get the value of the password field
     const password = document.getElementById("password") as HTMLInputElement;
-    // if the password is 16 characters long, enable the submit button
-    console.log(password.value.length);
     if (password.value.length === 16) {
       setDisabled(false);
     } else {
@@ -31,6 +28,9 @@ export function Login() {
             name="password"
             maxLength={16}
             class="rounded ml-4 mr-4 bg-blue-100 text-2xl p-2 text-center"
+            onKeyPress={checkLength}
+            onKeyDown={checkLength}
+            onKeyUp={checkLength}
             onChange={checkLength}
             autocomplete="password"
             autofocus
@@ -40,7 +40,7 @@ export function Login() {
           <button
             type="submit"
             class="rounded-xl hover:bg-green-300 bg-green-200 p-2 border(green-500 2) m-2 disabled:bg-gray-300 disabled:cursor-not-allowed"
-            // disabled={disabled}
+            disabled={disabled}
           >
             Sign In
           </button>

@@ -4,6 +4,7 @@
   "deno.unstable": true,
   "editor.defaultFormatter": "denoland.vscode-deno",
   "cSpell.words": [
+    "preact",
     "tdee"
   ],
   "[html]": {

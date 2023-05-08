@@ -12,6 +12,7 @@ import * as $5 from "./routes/api/signup.ts";
 import * as $6 from "./routes/index.tsx";
 import * as $7 from "./routes/logout.ts";
 import * as $8 from "./routes/profile.tsx";
+import * as $$0 from "./islands/SignIn.tsx";
 
 const manifest = {
   routes: {
@@ -25,7 +26,9 @@ const manifest = {
     "./routes/logout.ts": $7,
     "./routes/profile.tsx": $8,
   },
-  islands: {},
+  islands: {
+    "./islands/SignIn.tsx": $$0,
+  },
   baseUrl: import.meta.url,
   config,
 };
