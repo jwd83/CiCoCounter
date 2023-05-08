@@ -16,10 +16,10 @@ export default function App({ Component }: AppProps) {
         </title>
       </Head>
       <body class="text-center bg-gray-200">
-        <h1 class="text-6xl mb-4 mt-2">
+        <h1 class="text-5xl mb-4 mt-2">
           <a href="/">⚖️CiCoCounter🏋️</a>
         </h1>
-        <h2 class="text-2xl mb-4">
+        <h2 class="text-xl mb-6 italic">
           The anonymous Calorie In, Calorie Out Counter
         </h2>
 

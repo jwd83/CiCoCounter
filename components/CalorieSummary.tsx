@@ -20,7 +20,7 @@ export function CalorieSummary(
       class="bg-blue-200 rounded-xl pt-2 pb-2 border(blue-500 2)"
       style="width: 300px; text-align: center; margin:auto;"
     >
-      <h4 class="text-2xl">{props.date}</h4>
+      <h4 class="text-2xl">⏮️{props.date}⏭️</h4>
 
       <div class="text-2xl mb-2">Calorie Summary</div>
       <div class="bg-blue-400">
