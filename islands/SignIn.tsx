@@ -1,13 +1,13 @@
-// we will need to use the `useState` hook to check if the user has entered 16 characters
-// in the account # field
-
 import { useState } from "preact/hooks";
 
 export default function SignIn() {
   const [disabled, setDisabled] = useState(true);
 
+  // check if the value entered is 16 characters long
   function verifyLength(event: any) {
     if (event.target.value.length === 16) {
+      // TODO: check that all characters are numbers
+
       setDisabled(false);
     } else {
       setDisabled(true);
@@ -25,14 +25,14 @@ export default function SignIn() {
         <div class="mb-2">
           <input
             id="password"
-            type="password"
+            type="text"
             name="password"
             maxLength={16}
             class="rounded ml-4 mr-4 bg-blue-100 text-3xl p-2 text-center border-4"
             onInput={verifyLength}
             autocomplete="password"
             autofocus
-            style="width: 350px;"
+            style="width: 325px;"
           />
         </div>
         <div class="pb-2">
